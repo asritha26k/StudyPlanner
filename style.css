@@ -1,0 +1,217 @@
+/* style.css */
+
+/* --- 1. Global Styles & Variables --- */
+:root {
+    --font-family: 'Inter', sans-serif;
+    --bg-color: #f8fafc;
+    --text-color: #334155;
+    --header-text-color: #1e293b;
+    --container-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --header-bg: #f1f5f9;
+    --time-color: #64748b;
+    --hover-highlight: #e0f2fe;
+    --button-bg: #2563eb;
+    --button-hover-bg: #1d4ed8;
+    --focus-ring-color: rgba(37, 99, 235, 0.2);
+
+    /* Subject Colors */
+    --c-ds: #7dd3fc;
+    --c-os: #86efac;
+    --c-cn: #fde047;
+    --c-dbms: #e9d5ff;
+    --c-aptitude: #fda4af;
+    --c-project: #a5b4fc;
+    --c-coding: #93c5fd;
+    --c-revision: #9ca3af;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.planner-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.planner-header h1 {
+    color: var(--header-text-color);
+    font-weight: 700;
+    font-size: 2.25rem;
+    margin: 0;
+}
+
+.planner-header p {
+    color: var(--time-color);
+    margin-top: 0.5rem;
+}
+
+
+/* --- 2. Timetable Grid Layout --- */
+.timetable-wrapper {
+    background-color: var(--container-bg);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    overflow-x: auto; /* For responsiveness on small screens */
+}
+
+.timetable-grid {
+    display: grid;
+    grid-auto-flow: column; /* This is the key fix: it tells the grid to fill columns first. */
+    /* 8 columns: 1 for time, 7 for days */
+    grid-template-columns: minmax(100px, 0.7fr) repeat(7, 1fr);
+    /* 11 rows: 1 for headers, 10 for time slots */
+    grid-template-rows: 50px repeat(10, 65px);
+    min-width: 900px;
+}
+
+/* --- 3. Grid Cell Styling --- */
+.grid-cell {
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* Remove outer borders correctly for column flow */
+.timetable-grid > .grid-cell:last-child {
+    border-right: none;
+}
+.timetable-grid > .grid-cell:nth-child(11n) {
+    border-bottom: none;
+}
+
+
+.day-header, .time-header {
+    background-color: var(--header-bg);
+    color: var(--header-text-color);
+    font-weight: 700;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.time-slot, .time-header {
+    color: var(--time-color);
+    position: sticky;
+    left: 0;
+    background-color: var(--header-bg); /* Match header for consistency */
+    z-index: 20;
+}
+.time-header { z-index: 30; }
+
+.lunch-break {
+    background-color: #f3f4f6;
+    font-weight: 500;
+}
+
+.free-slot {
+    background-color: #f9fafb;
+}
+
+/* --- 4. Subject & Hover Styles --- */
+.study-slot, .free-slot {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.study-slot:hover, .free-slot:hover {
+    transform: scale(1.03);
+    z-index: 40;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    background-color: var(--hover-highlight) !important; /* Overrides subject color on hover */
+}
+
+/* Style for when a cell is being edited */
+.grid-cell[contenteditable="true"]:focus {
+    outline: 2px solid var(--button-bg);
+    box-shadow: 0 0 0 3px var(--focus-ring-color);
+    transform: scale(1.03);
+    z-index: 50;
+}
+
+.subject-ds     { border-left: 5px solid var(--c-ds); }
+.subject-os     { border-left: 5px solid var(--c-os); }
+.subject-cn     { border-left: 5px solid var(--c-cn); }
+.subject-dbms   { border-left: 5px solid var(--c-dbms); }
+.subject-aptitude { border-left: 5px solid var(--c-aptitude); }
+.subject-project  { border-left: 5px solid var(--c-project); }
+.subject-coding   { border-left: 5px solid var(--c-coding); }
+.subject-revision { border-left: 5px solid var(--c-revision); }
+
+
+/* --- 5. Print & Button Styles --- */
+.print-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.print-button {
+    background-color: var(--button-bg);
+    color: white;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.print-button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+@media print {
+    body {
+        background-color: #fff;
+        color: #000;
+    }
+    .container {
+        padding: 0;
+        max-width: 100%;
+    }
+    .print-button, .planner-header p {
+        display: none;
+    }
+    .planner-header {
+        margin-bottom: 1.5rem;
+    }
+    .timetable-wrapper {
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+    .timetable-grid {
+        grid-template-columns: 0.6fr repeat(7, 1fr);
+        min-width: 0;
+    }
+    .grid-cell {
+        border-color: #ccc;
+        font-size: 9px;
+        padding: 0.4rem;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+    .day-header, .time-header, .time-slot, .lunch-break, .free-slot {
+        background-color: #f2f2f2;
+    }
+    .study-slot {
+        background-color: #fff !important; /* Keep background white for printing */
+    }
+}
