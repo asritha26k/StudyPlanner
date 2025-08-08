@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editable Student Study Planner</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <header class="planner-header">
+            <h1>Weekly Study Planner</h1>
+            <p>A clean and simple planner for your studies! </p>
+        </header>
+
+        <div class="timetable-wrapper">
+            <div class="timetable-grid">
+                <!-- Time Column -->
+                <div class="grid-cell time-header">Time</div>
+                <div class="grid-cell time-slot">8-9 AM</div>
+                <div class="grid-cell time-slot">9-10 AM</div>
+                <div class="grid-cell time-slot">10-11 AM</div>
+                <div class="grid-cell time-slot">11-12 PM</div>
+                <div class="grid-cell time-slot lunch">12-1 PM</div>
+                <div class="grid-cell time-slot">1-2 PM</div>
+                <div class="grid-cell time-slot">2-3 PM</div>
+                <div class="grid-cell time-slot">3-4 PM</div>
+                <div class="grid-cell time-slot">4-5 PM</div>
+                <div class="grid-cell time-slot">5-6 PM</div>
+
+                <!-- Monday Column -->
+                <div class="grid-cell day-header">Monday</div>
+                <div class="grid-cell study-slot subject-ds" contenteditable="true">Data Structures</div>
+                <div class="grid-cell study-slot subject-ds" contenteditable="true">Algorithms</div>
+                <div class="grid-cell study-slot subject-os" contenteditable="true">Operating Systems</div>
+                <div class="grid-cell free-slot" contenteditable="true"></div>
+                <div class="grid-cell lunch-break">Lunch</div>
+                <div class="grid-cell study-slot subject-cn" contenteditable="true">Computer Networks</div>
+                <div class="grid-cell study-slot subject-aptitude" contenteditable="true">Aptitude Prep</div>
+                <div class="grid-cell study-slot subject-project" contenteditable="true">Project Work</div>
+                <div class="grid-cell study-slot subject-project" contenteditable="true">Project Work</div>
+                <div class="grid-cell free-slot" contenteditable="true"></div>
+
+                <!-- Tuesday Column -->
+                <div class="grid-cell day-header">Tuesday</div>
+                <div class="grid-cell study-slot subject-dbms" contenteditable="true">DBMS</div>
+                <div class="grid-cell study-slot subject-dbms" contenteditable="true">SQL Practice</div>
+                <div class="grid-cell study-slot subject-os" contenteditable="true">OS Concepts</div>
+                <div class="grid-cell study-slot subject-aptitude" contenteditable="true">Aptitude Prep</div>
+                <div class="grid-cell lunch-break">Lunch</div>
+                <div class="grid-cell free-slot" contenteditable="true"></div>
+                <div class="grid-cell study-slot subject-ds" contenteditable="true">DS Revision</div>
+                <div class="grid-cell study-slot subject-cn" contenteditable="true">Networking Protocols</div>
+                <div class="grid-cell free-slot" contenteditable="true"></div>
+                <div class="grid-cell study-slot subject-coding" contenteditable="true">Coding Practice</div>
+
+                <!-- Wednesday Column -->
+                <div class="grid-cell day-header">Wednesday</div>
+                <div class="grid-cell study-slot subject-cn" contenteditable="true">Computer Networks</div>
+                <div class="grid-cell study-slot subject-cn" contenteditable="true">Lab Work</div>
+                <div class="grid-cell free-slot" contenteditable="true"></div>
+                <div class="grid-cell study-slot subject-os" contenteditable="true">OS Scheduling</div>
+                <div class="grid-cell lunch-break">Lunch</div>
+                <div class="grid-cell study-slot subject-project" contenteditable="true">Project Meeting</div>
+                <div class="grid-cell study-slot subject-project" contenteditable="true">Project Work</div>
+                <div class="grid-cell study-slot subject-aptitude" contenteditable="true">Aptitude Test</div>
+                <div class="grid-cell free-slot" contenteditable="true"></div>
+                <div class="grid-cell study-slot subject-coding" contenteditable="true">Coding Challenge</div>
+
+                <!-- Thursday Column -->
+                <div class="grid-cell day-header">Thursday</div>
+                <div class="grid-cell study-slot subject-ds" contenteditable="true">Trees & Graphs</div>
+                <div class="grid-cell study-slot subject-ds" contenteditable="true">DS Problems</div>
+                <div class="grid-cell study-slot subject-coding" contenteditable="true">System Design</div>
+                <div class="grid-cell study-slot subject-dbms" contenteditable="true">Database Design</div>
+                <div class="grid-cell lunch-break">Lunch</div>
+                <div class="grid-cell study-slot subject-os" contenteditable="true">Memory Management</div>
+                <div class="grid-cell study-slot subject-coding" contenteditable="true">System Design</div>
+                <div class="grid-cell free-slot" contenteditable="true"></div>
+                <div class="grid-cell free-slot" contenteditable="true"></div>
+                <div class="grid-cell study-slot subject-aptitude" contenteditable="true">Resume Building</div>
+
+                <!-- Friday Column -->
+                <div class="grid-cell day-header">Friday</div>
+                <div class="grid-cell study-slot subject-aptitude" contenteditable="true">Verbal Ability</div>
+                <div class="grid-cell study-slot subject-coding" contenteditable="true">Coding Practice</div>
+                <div class="grid-cell study-slot subject-cn" contenteditable="true">Network Security</div>
+                <div class="grid-cell free-slot" contenteditable="true"></div>
+                <div class="grid-cell lunch-break">Lunch</div>
+                <div class="grid-cell study-slot subject-project" contenteditable="true">Project Review</div>
+                <div class="grid-cell study-slot subject-ds" contenteditable="true">DS Revision</div>
+                <div class="grid-cell free-slot" contenteditable="true"></div>
+                <div class="grid-cell study-slot subject-dbms" contenteditable="true">Normalization</div>
+                <div class="grid-cell free-slot" contenteditable="true"></div>
+
+                <!-- Saturday Column -->
+                <div class="grid-cell day-header">Saturday</div>
+                <div class="grid-cell study-slot subject-coding" contenteditable="true">Mock Interview</div>
+                <div class="grid-cell study-slot subject-coding" contenteditable="true">Mock Interview</div>
+                <div class="grid-cell study-slot subject-revision" contenteditable="true">Weekly Revision</div>
+                <div class="grid-cell study-slot subject-revision" contenteditable="true">Weekly Revision</div>
+                <div class="grid-cell lunch-break">Lunch</div>
+                <div class="grid-cell free-slot" contenteditable="true"></div>
+                <div class="grid-cell free-slot" contenteditable="true"></div>
+                <div class="grid-cell free-slot" contenteditable="true"></div>
+                <div class="grid-cell free-slot" contenteditable="true"></div>
+                <div class="grid-cell free-slot" contenteditable="true"></div>
+                
+                <!-- Sunday Column -->
+                <div class="grid-cell day-header">Sunday</div>
+                <div class="grid-cell free-slot" contenteditable="true"></div>
+                <div class="grid-cell free-slot" contenteditable="true"></div>
+                <div class="grid-cell free-slot" contenteditable="true"></div>
+                <div class="grid-cell free-slot" contenteditable="true"></div>
+                <div class="grid-cell lunch-break">Lunch</div>
+                <div class="grid-cell free-slot" contenteditable="true"></div>
+                <div class="grid-cell free-slot" contenteditable="true"></div>
+                <div class="grid-cell free-slot" contenteditable="true"></div>
+                <div class="grid-cell free-slot" contenteditable="true"></div>
+                <div class="grid-cell free-slot" contenteditable="true"></div>
+            </div>
+        </div>
+
+        <div class="print-container">
+            <button onclick="window.print()" class="print-button">
+                Print Schedule
+            </button>
+        </div>
+    </div>
+
+</body>
+</html>
